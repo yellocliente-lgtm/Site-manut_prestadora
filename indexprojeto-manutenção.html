@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yello Manutenção e Prestação de Serviços | Maringá e Região</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #84cc16; /* Verde Limão */
+            --primary-dark: #65a30d;
+            --accent: #f59e0b; /* Amarelo */
+            --dark: #1f2937;
+            --light: #f5f5dc; /* Bege Suave */
+            --gray: #6b7280;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            color: var(--dark);
+            background-color: var(--light);
+        }
+
+        /* Header */
+        header {
+            background: #ffffff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--dark);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--primary-dark);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-dark);
+        }
+
+        .btn-whatsapp-top {
+            background-color: #25d366;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: background 0.3s;
+        }
+
+        .btn-whatsapp-top:hover {
+            background-color: #20ba5a;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            color: white;
+            padding: 10rem 5% 6rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-cta {
+            background-color: var(--primary);
+            color: var(--dark);
+            padding: 0.8rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: background 0.3s;
+        }
+
+        .btn-cta:hover {
+            background-color: var(--primary-dark);
+            color: white;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 5rem 5%;
+            background: #ffffff;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--gray);
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--light);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            border-top: 4px solid var(--primary);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--dark);
+        }
+
+        .service-card h3 i {
+            color: var(--accent);
+        }
+
+        .service-card ul {
+            list-style: none;
+            color: var(--gray);
+        }
+
+        .service-card ul li {
+            margin-bottom: 0.5rem;
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .service-card ul li::before {
+            content: "•";
+            color: var(--primary-dark);
+            position: absolute;
+            left: 0;
+        }
+
+        /* Galeria com imagens limpas e direcionamento */
+        .gallery {
+            padding: 5rem 5%;
+            background: var(--light);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .gallery-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s;
+        }
+
+        .gallery-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .gallery-img-box {
+            position: relative;
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .gallery-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .gallery-card:hover .gallery-img-box img {
+            transform: scale(1.05);
+        }
+
+        .gallery-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .gallery-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .gallery-content p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .gallery-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #e5e7eb;
+            padding-top: 1rem;
+            margin-top: 1rem;
+        }
+
+        .location-tag {
+            font-size: 0.85rem;
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+
+        .btn-card-wpp {
+            background-color: #25d366;
+            color: white;
+            padding: 0.5rem 0.9rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: background 0.3s;
+        }
+
+        .btn-card-wpp:hover {
+            background-color: #20ba5a;
+        }
+
+        /* About Section */
+        .about {
+            padding: 5rem 5%;
+            background: white;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            color: var(--gray);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .features-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            list-style: none;
+        }
+
+        .features-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+        }
+
+        .features-list li i {
+            color: var(--primary-dark);
+        }
+
+        .about-img {
+            background: url('https://images.unsplash.com/photo-1541888946425-d0fbb18f8f3c?auto=format&fit=crop&w=800&q=80') center/cover;
+            height: 350px;
+            border-radius: 8px;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 5%;
+            background: var(--light);
+            text-align: center;
+        }
+
+        .contact-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            text-align: left;
+        }
+
+        .contact-container h2 {
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-container > p {
+            text-align: center;
+            color: var(--gray);
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.4rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #d1d5db;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            height: 100px;
+        }
+
+        .btn-submit-wpp {
+            width: 100%;
+            background-color: #25d366;
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: background 0.3s;
+        }
+
+        .btn-submit-wpp:hover {
+            background-color: #20ba5a;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem 5%;
+        }
+
+        footer p {
+            color: #9ca3af;
+            font-size: 0.9rem;
+        }
+
+        /* Floating WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 1000;
+            transition: transform 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <a href="#" class="logo">YELLO <span>Manutenção</span></a>
+        <nav>
+            <ul>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#trabalhos">Galeria</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#contato">Orçamento</a></li>
+            </ul>
+        </nav>
+        <a href="https://wa.me/554491752721" target="_blank" class="btn-whatsapp-top">
+            <i class="fab fa-whatsapp"></i> (44) 99175-2721
+        </a>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Yello Manutenção e Prestação de Serviços</h1>
+        <p>Soluções completas em manutenção residencial e comercial em Maringá e região. Agilidade, qualidade e preço justo.</p>
+        <a href="https://wa.me/554491752721" target="_blank" class="btn-cta">
+            <i class="fab fa-whatsapp"></i> Chamar no WhatsApp
+        </a>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicos" class="services">
+        <h2 class="section-title">Nossos Serviços</h2>
+        <p class="section-subtitle">Tudo o que você precisa em um só lugar, do pequeno reparo à instalação complexa.</p>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3><i class="fas fa-bolt"></i> Elétrica</h3>
+                <ul>
+                    <li>Instalação de ventiladores</li>
+                    <li>Tomadas, interruptores e disjuntores</li>
+                    <li>Lustres, spots e luminárias</li>
+                    <li>Chuveiros e resistências</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <h3><i class="fas fa-faucet"></i> Hidráulica</h3>
+                <ul>
+                    <li>Reparo de vazamentos</li>
+                    <li>Troca de torneiras e sifões</li>
+                    <li>Instalação de purificadores</li>
+                    <li>Manutenção em descargas</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <h3><i class="fas fa-tools"></i> Instalações & Reparos</h3>
+                <ul>
+                    <li>Suporte para TV e micro-ondas</li>
+                    <li>Varão de cortina e prateleiras</li>
+                    <li>Fechaduras eletrônicas</li>
+                    <li>Acessórios para banheiro</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <h3><i class="fas fa-couch"></i> Montagem de Móveis</h3>
+                <ul>
+                    <li>Guarda-roupas e camas</li>
+                    <li>Painéis e racks para TV</li>
+                    <li>Mesas e cadeiras</li>
+                    <li>Armários de cozinha e banheiro</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section (Com imagens limpas e direcionamento direto) -->
+    <section id="trabalhos" class="gallery">
+        <h2 class="section-title">Galeria de Trabalhos Realizados</h2>
+        <p class="section-subtitle">Conheça um pouco da qualidade dos serviços executados para nossos clientes.</p>
+        
+        <div class="gallery-grid">
+            <!-- Card 1 -->
+            <div class="gallery-card">
+                <div class="gallery-img-box">
+                    <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=600&q=80" alt="Instalação de Ventilador de Teto">
+                </div>
+                <div class="gallery-content">
+                    <div>
+                        <h3>Instalação de Ventilador de Teto</h3>
+                        <p>Ventilador instalado com ponto elétrico adequado, fixação segura e acabamento impecável.</p>
+                    </div>
+                    <div class="gallery-footer">
+                        <span class="location-tag">📍 Maringá - PR</span>
+                        <a href="https://wa.me/554491752721?text=Olá!%20Vi%20o%20serviço%20de%20Ventilador%20de%20Teto%20no%20site%20e%20gostaria%20de%20um%20orçamento." target="_blank" class="btn-card-wpp">
+                            <i class="fab fa-whatsapp"></i> Orçamento
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="gallery-card">
+                <div class="gallery-img-box">
+                    <img src="https://images.unsplash.com/photo-1593784991095-a205069470b6?auto=format&fit=crop&w=600&q=80" alt="Instalação de Suporte para TV">
+                </div>
+                <div class="gallery-content">
+                    <div>
+                        <h3>Instalação de Suporte para TV</h3>
+                        <p>TV instalada na parede com suporte articulado reforçado e organização limpa de cabos.</p>
+                    </div>
+                    <div class="gallery-footer">
+                        <span class="location-tag">📍 Maringá - PR</span>
+                        <a href="https://wa.me/554491752721?text=Olá!%20Vi%20o%20serviço%20de%20Suporte%20para%20TV%20no%20site%20e%20gostaria%20de%20um%20orçamento." target="_blank" class="btn-card-wpp">
+                            <i class="fab fa-whatsapp"></i> Orçamento
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="gallery-card">
+                <div class="gallery-img-box">
+                    <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80" alt="Manutenção Hidráulica">
+                </div>
+                <div class="gallery-content">
+                    <div>
+                        <h3>Manutenção Hidráulica e Torneira</h3>
+                        <p>Substituição de modelo tradicional por torneira gourmet moderna com vedação total.</p>
+                    </div>
+                    <div class="gallery-footer">
+                        <span class="location-tag">📍 Maringá e Região</span>
+                        <a href="https://wa.me/554491752721?text=Olá!%20Vi%20o%20serviço%20de%20Hidráulica%20no%20site%20e%20gostaria%20de%20um%20orçamento." target="_blank" class="btn-card-wpp">
+                            <i class="fab fa-whatsapp"></i> Orçamento
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="sobre" class="about">
+        <div class="about-text">
+            <h2>Profissionalismo e Confiança em Maringá</h2>
+            <p>Atendemos residências e comércios em Maringá e região com total compromisso, ferramentas próprias e garantia nos serviços realizados.</p>
+            <ul class="features-list">
+                <li><i class="fas fa-check-circle"></i> Atendimento Rápido</li>
+                <li><i class="fas fa-check-circle"></i> Orçamento Grátis</li>
+                <li><i class="fas fa-check-circle"></i> Garantia do Serviço</li>
+                <li><i class="fas fa-check-circle"></i> Maringá e Região</li>
+            </ul>
+        </div>
+        <div class="about-img"></div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contato" class="contact">
+        <div class="contact-container">
+            <h2>Solicite Seu Orçamento</h2>
+            <p>Preencha os dados abaixo e clique para enviar direto para o nosso WhatsApp!</p>
+            
+            <form id="wppForm" onsubmit="enviarWhatsApp(event)">
+                <div class="form-group">
+                    <label for="nome">Seu Nome:</label>
+                    <input type="text" id="nome" placeholder="Como podemos te chamar?" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="servico">Serviço Desejado:</label>
+                    <input type="text" id="servico" placeholder="Ex: Instalação de ventilador, elétrica..." required>
+                </div>
+
+                <div class="form-group">
+                    <label for="mensagem">Detalhes do Serviço:</label>
+                    <textarea id="mensagem" placeholder="Descreva brevemente o que precisa..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit-wpp">
+                    <i class="fab fa-whatsapp"></i> Enviar Orçamento via WhatsApp
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Yello Manutenção e Prestação de Serviços. Todos os direitos reservados. Atendimento em Maringá - PR e região.</p>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/554491752721" target="_blank" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Script de Envio do Formulário -->
+    <script>
+        function enviarWhatsApp(event) {
+            event.preventDefault();
+            const nome = document.getElementById('nome').value;
+            const servico = document.getElementById('servico').value;
+            const mensagem = document.getElementById('mensagem').value;
+
+            const texto = `Olá! Meu nome é *${nome}*. Gostaria de solicitar um orçamento para o serviço de: *${servico}*. Detalhes: ${mensagem}`;
+            const url = `https://wa.me/554491752721?text=${encodeURIComponent(texto)}`;
+            
+            window.open(url, '_blank');
+        }
+    </script>
+
+</body>
+</html>
